@@ -1,0 +1,364 @@
+<!-- <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig" >
+
+    <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+        <img src="{{ slide.img }}" alt="" width="100%">
+    </div>
+</ngx-slick-carousel> -->
+
+
+<section class="container mx-auto w-full pb-12">
+    <div class="mb-6 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-slate-50 hover:bg-slate-100"
+        (click)="goBack()">
+        <svg class="h-6 w-6" viewBox="0 0 15 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 1.58887L2 15.3367L14 29.0846" stroke="black" stroke-width="2"></path>
+        </svg>
+    </div>
+    <div class="flex w-full flex-wrap items-start justify-between">
+        <div class="w-full sm:w-1/3">
+            <div class="w-full md:w-80">
+                <div class="h-[25rem] sm:h-[22rem] md:h-[25rem] relative musicCard mx-2 cursor-pointer rounded-2xl bg-cover"
+                    style="background: url(&quot;/assets/img/card_back.svg&quot;) center center no-repeat;"
+                   >
+                    <div class="appear relative h-full w-full rounded-[16px] bg-cover bg-center bg-no-repeat p-[10px]">
+                        <div class="p-4" style="height: calc(100% - 5rem);">
+                            <div class="w-full flex justify-between">
+                                <div></div>
+                                <div class="flex items-center space-x-2 md:space-x-4">
+                                    <div class="relative w-4 h-4 md:w-10 md:h-10"><span
+                                            style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;"><img
+                                                src="/assets/img/Chip-silver.svg" decoding="async" data-nimg="fill"
+                                                style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"></span>
+                                    </div>
+                                    <div class="relative w-4 h-4 md:w-10 md:h-10"><svg class="w-full h-full" viewBox="0 0 31 39"
+                                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M24.3263 2C27.3881 7.32067 29 13.3562 29 19.5C29 25.6438 27.3881 31.6793 24.3263 37M16.6516 5.85C19.0398 10.0001 20.2971 14.7078 20.2971 19.5C20.2971 24.2922 19.0398 28.9999 16.6516 33.15M9.32582 9.385C11.0527 12.4178 11.9618 15.858 11.9618 19.36C11.9618 22.862 11.0527 26.3022 9.32582 29.335M2 13.2C3.24452 15.0897 3.90432 17.2725 3.90432 19.5C3.90432 21.7275 3.24452 23.9103 2 25.8"
+                                                stroke="#D9D9D9" stroke-width="4" stroke-linecap="round"></path>
+                                        </svg></div>
+                                </div>
+                            </div>
+                            <div class="w-full flex items-center justify-center relative pt-0" style="height: calc(100% - 3rem);"><span
+                                    style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 130px; height: 130px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"><img
+                                        src="{{card_details.cover_art_url}}" decoding="async" data-nimg="fixed"
+                                        class="rounded-full bg-gray-4 border border-[#2C3543]"
+                                        style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover;"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-0 w-full">
+                        <div class="flex flex-col items-center justify-center font-bold py-2 z-10">
+                            <h2 class="text-white text-xl md:text-2xl capitalize" style="font-weight: 900;
+                                    margin-top: -10%;
+                                    position: absolute;">{{card_details.song.stage_name}}</h2>
+                        </div>
+                        <div class="w-full h-24 px-4 py-2 rounded-b-2xl flex justify-between items-center z-0"
+                            style="background: linear-gradient(94.2deg, rgba(255, 255, 255, 0) 13.99%, rgb(255, 255, 255) 47.58%, rgba(255, 255, 255, 0) 77.77%), rgb(153, 153, 153);">
+                            <div class="font-bold"><span class="text-xs leading-relaxed">Powered By</span>
+                                <p class="leading-tight text-lg">{{card_details.song.title}}</p>
+                            </div>
+                            <div class="flex items-center justify-center"><span
+                                    style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 80px; height: 50px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"><img
+                                        src="/assets/img/logo-w.svg" decoding="async" data-nimg="fixed"
+                                        style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover;"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full sm:w-2/3 pt-10 sm:pt-0" style="width: 100% !important;
+    padding-top: 10% !important;" *ngIf="card_details.status != 'active'">
+                    <div class="mx-4 sm:mx-10 rounded-xl bg-gray-2 p-8 pb-12">
+                        <div class="flex items-start justify-between" >
+                         
+           <ul >
+        
+                <li style="display: flex;padding: top 10%;"> <input type="checkbox" /> Youtube </li>
+                <li> <input type="checkbox" /> Spotify</li>
+                    <li> <input type="checkbox" /> Apple Music</li>
+                    <li> <input type="checkbox" /> Deezer</li>
+            
+         
+           </ul>
+       
+            </div>
+            </div>
+            <button class="btn btn-primary btn-round" (click)="approve(card_details.id)" *ngIf="card_details.status != 'active'">Publish Card </button>
+            </div>
+        
+             
+            </div>
+        </div>
+        <div class="w-full sm:w-2/3 pt-10 sm:pt-0" >
+            <div class="mx-4 sm:mx-10 rounded-xl bg-gray-2 p-8 pb-12">
+                <div class="flex items-start justify-between">
+                    <div class="flex h-10 w-10 items-center justify-center rounded-full bg-black">
+                        <svg class="h-6 w-6"
+                            viewBox="0 0 31 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="3.5" cy="3.5" r="3.5" fill="white"></circle>
+                            <circle cx="15.5" cy="3.5" r="3.5" fill="white"></circle>
+                            <circle cx="27.5" cy="3.5" r="3.5" fill="white"></circle>
+                        </svg></div>
+                    <div class="w-4/5 sm:w-1/2">
+                        <div class="flex items-center ">
+                            <div role="group" tabindex="0" aria-label="Audio player"
+                                class="rhap_container rhap_loop--off rhap_play-status--paused transparent bg-transparent border-none shadow-none p-0">
+                                <audio controls>
+
+                                    <source src="{{card_details.song.media_url}} " type="audio/mpeg">
+
+                                </audio>
+                               
+                            </div>
+                        </div>
+                        <h4 *ngIf="card_details.listed == false" style="text-align: center;">Listed: Not Listed </h4>
+                        <h4 *ngIf="card_details.listed == true">Listed:  Yes </h4>
+                      
+                        
+                    </div>
+                </div>
+                <div class="appear container mx-auto" id="excel-table">
+                 
+                    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+
+                        <div ngxSlickItem class="slide">
+                            <div>
+                                <div class="mt-4 h-[50vh] overflow-x-hidden rounded-md bg-white/50 p-6">
+                                    <h2 class="text-3xl font-bold text-black">Ownership</h2>
+                                    <span class="pt-5 text-lg">
+                                        <div class="w-full">
+                                            <div class="pt-5" id="moveUp">
+                        
+                                                <img src="{{card_details.owner.photo_url}}">
+                                            </div>
+                        
+                                            <div class="pt-5">
+                                                <h2 class="font-bold text-xl">Fullname</h2>
+                                                <p class="pt-3" style="margin-top: -5%;">{{card_details.owner.first_name}} {{card_details.owner.last_name}}</p>
+                                            </div>
+                        
+                                            <div class="pt-5" id="moveUp">
+                                                <h2 class="font-bold text-xl">Biograpghy</h2>
+                                                <p class="pt-3" style="margin-top: -5%;">{{card_details.owner.bio}}</p>
+                                            </div>
+                                            <div class="pt-5">
+                                                <h2 class="font-bold text-xl">Mobile Number</h2>
+                                                <p class="pt-3" style="margin-top: -5%;">{{card_details.owner.mobile_number}} </p>
+                                            </div>
+                                            <div class="pt-5">
+                                                <h2 class="font-bold text-xl">Email</h2>
+                                                <p class="pt-3" style="margin-top: -5%;">{{card_details.owner.email}} </p>
+                                            </div>
+
+                                            <div class="pt-5" id="moveUp">
+                                                <h2 class="font-bold text-xl">Music on Other Platform</h2>
+                                                <p class="pt-3" style="margin-top: -5%;">{{card_details.song.on_other_platforms}}</p>
+                                            </div>
+
+                                            <div class="pt-5" id="moveUp">
+                                                <h2 class="font-bold text-xl">Owner has rights to upload</h2>
+                                                <p class="pt-3" style="margin-top: -5%;">{{card_details.song.owner_has_rights_to_upload}}</p>
+                                            </div>
+                        
+                                            <!-- <div class="bg-white py-6 rounded-xl text-center my-6"><span
+                                                                            class="font-bold text-3xl">$4.73</span>
+                                                                    </div> -->
+                                            <div class="w-full flex flex-wrap items-center mb-5">
+                                                <div class="w-full sm:w-1/2 pr-3">
+                                                    <div class=" bg-white py-4 rounded-xl text-center mb-3">
+                                                        <p>Followers</p>
+                                                        <div class="font-bold text-3xl text-[#24A129] pt-1">
+                        
+                                                            ↑{{card_details.owner.followers}}</div>
+                                                    </div>
+                                                </div>
+                                                <div class="w-full sm:w-1/2 pl-3">
+                                                    <div class="bg-white py-4 rounded-xl text-center mb-3">
+                                                        <p>Followings</p>
+                                                        <div class="font-bold text-3xl text-[#24A129]">
+                                                            +{{card_details.owner.following}}
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- <div class="pt-5">
+                                                    <h2 class="font-bold text-xl">Music on Other Platforms</h2>
+                                                    <p class="pt-3" style="margin-top: 0%;">{{card_details.on_other_platforms}}</p>
+                                                </div>
+                                                <div class="pt-5">
+                                                    <h2 class="font-bold text-xl">Owner has rights to upload</h2>
+                                                    <p class="pt-3" style="margin-top: 0%;">{{card_details.owner_has_rights_to_upload}}</p>
+                                                </div> -->
+                                            </div>
+                        
+                                        </div>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div ngxSlickItem class="slide">
+                            <div>
+                                <div class="mt-4 h-[50vh] overflow-x-hidden rounded-md bg-white/50 p-6">
+                                    <h2 class="text-3xl font-bold text-black">Streams</h2>
+                                    <span class="pt-5 text-lg">
+                                     
+                                        Track Url: <span style="color: red"> {{card_details.song.media_url}} </span> <br>
+
+                                       <b>Genre:</b><span style="color: red"> {{card_details.song.genre}} </span><br>
+
+                                        <b>Song upload date:</b> <span style="color: red"> {{card_details.song.created_at}} </span><br>
+
+                                    <b>Owner_has_rights_to_upload:</b><span style="color: red"> {{card_details.song.owner_has_rights_to_upload}} </span>
+
+                                        <div class="w-full pt-5">
+                                            <div class="bg-white py-6 rounded-xl text-center mb-6"><span
+                                                    class="font-bold text-3xl">0</span>
+                                                <p class="text-xl pt-2">Total Plays</p>
+                                            </div>
+                                            <!-- <div class="w-full flex flex-wrap items-center mb-6">
+                                                <div class="w-full sm:w-1/2 pr-3">
+                                                    <div class=" bg-white py-6 rounded-xl text-center mb-5">
+                                                        <span
+                                                            style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 24px; height: 24px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"><img
+                                                                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                                                decoding="async" data-nimg="fixed"
+                                                                style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"><noscript></noscript></span>
+                                                        <div class="font-bold text-3xl pt-1">4.1M</div>
+                                                        <p class="text-xl pt-1">Plays</p>
+                                                    </div>
+                                                </div>
+                                                <div class="w-full sm:w-1/2 pl-3">
+                                                    <div class="bg-white py-6 rounded-xl text-center mb-5">
+                                                        <span
+                                                            style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 24px; height: 24px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"><img
+                                                                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                                                decoding="async" data-nimg="fixed"
+                                                                style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"><noscript></noscript></span>
+                                                        <div class="font-bold text-3xl">6.3M</div>
+                                                        <p class="text-xl pt-2">Plays</p>
+                                                    </div>
+                                                </div>
+                                                <div class="w-full sm:w-1/2 pr-3">
+                                                    <div class=" bg-white py-6 rounded-xl text-center mb-5">
+                                                        <span
+                                                            style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 24px; height: 24px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"><img
+                                                                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                                                decoding="async" data-nimg="fixed"
+                                                                style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"><noscript></noscript></span>
+                                                        <div class="font-bold text-3xl pt-1">2M</div>
+                                                        <p class="text-xl pt-1">Plays</p>
+                                                    </div>
+                                                </div>
+                                                <div class="w-full sm:w-1/2 pl-3">
+                                                    <div class="bg-white py-6 rounded-xl text-center mb-5">
+                                                        <span
+                                                            style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 24px; height: 24px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"><img
+                                                                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                                                decoding="async" data-nimg="fixed"
+                                                                style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"><noscript></noscript></span>
+                                                        <div class="font-bold text-3xl">240K</div>
+                                                        <p class="text-xl pt-2">Plays</p>
+                                                    </div>
+                                                </div>
+                                            </div> -->
+                                        </div>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                       
+
+                        <div ngxSlickItem class="slide">
+                            <div class="mt-4 h-[50vh] overflow-x-hidden rounded-md bg-white/50 p-6">
+                                <h2 class="text-3xl font-bold text-black">Ownership history</h2>
+                                <span class="pt-5 text-lg">
+                                    <p>None</p>
+                                    <!-- <div class="w-full">
+                                        <div class="pb-4 border-b border-gray-2 pt-4">
+                                            <h2 class="font-bold">24th February, 2022</h2>
+                                            <div class="flex items-center">
+                                                <div class="w-48 font-bold">Card sold:</div>
+                                                <div>$15,000</div>
+                                            </div>
+                                            <div class="flex items-center pb-1">
+                                                <div class="w-48 font-bold">Puchased by:</div>
+                                                <div>Simons Davis</div>
+                                            </div>
+                                        </div>
+                                        <div class="pb-4 border-b border-gray-2 pt-4">
+                                            <h2 class="font-bold">2nd March, 2022</h2>
+                                            <div class="flex items-center">
+                                                <div class="w-48 font-bold">Card sold:</div>
+                                                <div>$25,000</div>
+                                            </div>
+                                            <div class="flex items-center pb-1">
+                                                <div class="w-48 font-bold">Puchased by:</div>
+                                                <div>John Snow</div>
+                                            </div>
+                                        </div>
+                                        <div class="pb-4 border-b border-gray-2 pt-4">
+                                            <h2 class="font-bold">4th June, 2022</h2>
+                                            <div class="flex items-center">
+                                                <div class="w-48 font-bold">Card sold:</div>
+                                                <div>$5,000</div>
+                                            </div>
+                                            <div class="flex items-center pb-1">
+                                                <div class="w-48 font-bold">Puchased by:</div>
+                                                <div>Joja Smith</div>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                </span>
+                            </div>
+                        </div>
+
+
+
+                        <div ngxSlickItem class="slide">
+                            <div>
+                                <div class="mt-4 h-[50vh] overflow-x-hidden rounded-md bg-white/50 p-6">
+                                    <h2 class="text-3xl font-bold text-black">Lyrics</h2>
+                                    <span class="pt-5 text-lg">
+                                        <div class="w-full">
+                                            <p class="text-center">{{card_details.lyrics}}</p>
+                                        </div>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div ngxSlickItem class="slide">
+                            <div>
+                                <div class="mt-4 h-[50vh] overflow-x-hidden rounded-md bg-white/50 p-6">
+                                    <h2 class="text-3xl font-bold text-black">The Artist</h2>
+                                    <p class="pt-5 text-lg">{{card_details.artist_info}}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div ngxSlickItem class="slide">
+                            <div>
+                                <div class="mt-4 h-[50vh] overflow-x-hidden rounded-md bg-white/50 p-6">
+                                    <h2 class="text-3xl font-bold text-black">Production</h2>
+                                    <p class="pt-5 text-lg">{{card_details.production_info}}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </ngx-slick-carousel>
+
+<button class="btn btn-primary btn-round" (click)="approve(card_details.id)" *ngIf="card_details.status != 'active'">Approve Card </button>
+<button class="btn btn-danger btn-round" (click)="disapprove(card_details.id)">Dismiss Card</button>
+<button class="btn btn-warning btn-round" (click)=downloadCSV(card_details)>Export Data</button>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- 
+"exportexcel(card_details, 'exported_data.csv')" -->

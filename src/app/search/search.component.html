@@ -1,0 +1,231 @@
+<style>
+    .spp{
+         text-align: center  !important;
+                font-size: 2em;
+                margin: 30px;
+    }
+    
+</style>
+<div class="row">
+    <div class="col-md-12">
+        <form>
+            <div class="input-group no-border">
+                <input type="text" value="" class="form-control" placeholder="Search by name, email, mobile number..."
+                    [(ngModel)]="searchText">
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                        <i class="nc-icon nc-zoom-split"></i>
+                    </div>
+                </div>
+            </div>
+        </form>
+            <div class="row">
+            
+                <div class="col-md-3">
+                    <div class="card card-stats">
+                        <div class="card-body ">
+                            <div class="row">
+            
+                                <div class="col-12 col-md-12">
+                                    <div class="numbers spp">
+                                        <span style="font-weight: 600; font-size: 18px;line-height: 20px;color: #898A8D">Cards
+                                            Transacted
+                                        </span>
+                                        <!-- <img src="assets/img/apple.png" style="width: 35px;"> -->
+            
+                                        <p class="card-title">{{user_list?.counts.cards_transacted}}
+                                        <p>
+                                            <!-- <p class="card-category" style="font-weight: 900;
+                            padding-bottom: 20px;">BALANCE</p> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            
+                    </div>
+                </div>
+            
+                <div class="col-md-3">
+                    <div class="card card-stats">
+                        <div class="card-body ">
+                            <div class="row">
+            
+                                <div class="col-12 col-md-12">
+                                    <div class="numbers spp">
+                                        <span style="font-weight: 600; font-size: 18px;line-height: 20px;color: #898A8D">
+                                            Transacted Value
+                                        </span>
+                                        <!-- <img src="assets/img/apple.png" style="width: 35px;"> -->
+            
+                                        <p class="card-title">£{{user_list?.counts.cards_transacted_value}}
+                                        <p>
+                                            <!-- <p class="card-category" style="font-weight: 900;
+                                            padding-bottom: 20px;">BALANCE</p> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            
+                    </div>
+                </div>
+            
+            
+                <div class="col-md-3">
+                    <div class="card card-stats">
+                        <div class="card-body ">
+                            <div class="row">
+            
+                                <div class="col-12 col-md-12">
+                                    <div class="numbers spp">
+                                        <span style="font-weight: 600; font-size: 18px;line-height: 20px;color: #898A8D">TOTAL SONGS
+                                        </span>
+                                        <!-- <img src="assets/img/apple.png" style="width: 35px;"> -->
+            
+                                        <p class="card-title">{{user_list?.counts.songs}}
+                                        <p>
+                                            <!-- <p class="card-category" style="font-weight: 900;
+                                padding-bottom: 20px;">Uploaded</p> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            
+                    </div>
+                </div>
+            
+            
+            
+            
+                <div class="col-md-3">
+                    <div class="card card-stats">
+                        <div class="card-body ">
+                            <div class="row">
+            
+                                <div class="col-12 col-md-12">
+                                    <div class="numbers spp">
+                                        <span style="font-weight: 600; font-size: 18px;line-height: 20px;color: #898A8D">CARDS
+                                        </span>
+                                        <!-- <img src="assets/img/apple.png" style="width: 35px;"> -->
+            
+                                        <p class="card-title">{{user_list?.counts.cards}}
+                                        <p>
+                                            <!-- <p class="card-category" style="font-weight: 900;
+                                padding-bottom: 20px;">Uploaded</p> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            
+                    </div>
+                </div>
+            </div>
+        <div class="card">
+            <div class="card-header" style="display: inline-flex;
+    gap: 50%;">
+                <h4 class="card-title"> TRANSACTIONS</h4>
+                <h4> TOTAL BALANCE:<span style="color:brown;font-weight: 900;">£{{user_list?.transactions?.balance}}</span> </h4>
+            </div>
+
+        
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class=" text-primary">
+                            <th>
+                                No
+                            </th>
+                            <th>
+                                IMAGE
+                            </th>
+                            <th>
+                                NAME OF USER
+                            </th>
+                            <th>
+                               MOBILE NUMBER
+                            </th>
+                            <th>
+                                AMOUNT
+                            </th>
+                            <th>
+                                NARRATION
+                            </th>
+                            <th>
+                               TRANSACTION TYPE
+                            </th>
+                            
+                        
+                            <th>
+                                TRANSACTION DATE
+                            </th>
+
+                        </thead>
+                        <tbody *ngFor="let item of user_list.transactions?.details | filter:searchText; let i = index">
+                            <tr>
+                                <td>
+                                    {{i + 1}}
+                                </td>
+                                <td *ngIf="item.owner.photo_url">
+                                    <img class="avatar border-gray" src="{{item.owner?.photo_url}}" alt=""
+                                    >
+
+                                </td>
+
+                                <td *ngIf="!item.owner.photo_url">
+                              
+                                    <img class="avatar border-gray" src="assets/img/show.png" alt="" (click)="details(item)">
+                                
+                                </td>
+                                <td>
+                                    {{item.owner?.full_name}}
+                                </td>
+                                <td>
+                                    {{item.owner?.mobile_number}}
+                                </td>
+                                <td >
+                                    £{{item?.amount}}
+                                </td>
+                                <td >
+                                    {{item?.narration}}
+                                </td>
+
+                               <td *ngIf="item?.transaction_type == 'credit'">
+
+                                    <p style="color:rgb(3, 149, 95);font-weight: 900;">{{item?.transaction_type}}</p>
+                                </td>
+                                <td *ngIf="item?.transaction_type == 'debit'">
+                                
+                                    <p style="color:brown;font-weight: 900;">{{item?.transaction_type}} <i class="nc-icon nc-arrow text-warning"></i></p> 
+                                </td>
+
+                              
+                                <td>
+                                    {{item?.created_at | date:'medium'}}
+                                </td>
+
+
+                                <td >
+                                    <p style="color:rgb(36, 165, 11);font-weight: 900;">{{item?.status}}</p>
+                                </td>
+                                <td>
+                                    <div class="update ml-auto mr-auto">
+                                        <button class="btn btn-warning btn-round" (click)="topup(item.user_id)">Virtual TopUp</button>
+                                    </div>
+                                </td>
+                        
+
+
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+<app-loader *ngIf="!loading"></app-loader>

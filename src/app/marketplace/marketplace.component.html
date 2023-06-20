@@ -1,0 +1,144 @@
+<style>
+    .loader-wrapper {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #ffffffe8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .loader {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        position: relative;
+        /* border: 4px solid #Fff; */
+        animation: loader 2s infinite ease;
+    }
+
+    .loader-inner {
+        vertical-align: top;
+        display: inline-block;
+        width: 100%;
+        background-color: #fff;
+        animation: loader-inner 2s infinite ease-in;
+    }
+
+    @keyframes loader {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        25% {
+            transform: rotate(90deg);
+        }
+
+        50% {
+            transform: rotate(180deg);
+        }
+
+        75% {
+            transform: rotate(270deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+
+
+    }
+</style>
+
+<!-- <section class="bg-gray-3 px-6 sm:py-10">
+    <div class="container mx-auto pt-10">
+        <section class="flex w-full flex-wrap items-start">
+            <div class="appear w-full pr-2 pb-2 sm:w-1/2 md:w-1/3 md:pb-6 md:pr-4 lg:w-1/4 " *ngFor="let item of user_list;" >
+                <div class="musicCard relative mx-2 h-[22rem] mb-2 cursor-pointer">
+                    <div
+                        class="relative w-full rounded-2xl bg-white border border-gray-2 p-4 hover:scale-105 transition-all duration-700">
+                        <div class="flex items-center">
+                            <div class="relative rounded-full object-cover w-[100px] h-[100px] bg-prime"><span
+                                    style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 100px; height: 100px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"><img
+                                        src="https://user-gen-content.s3.amazonaws.com/stage/media/cover/Uyh2dGfjSIhU6Eh3RXR3.jpeg?AWSAccessKeyId=AKIAXU2R3TSSJQYXHVNI&amp;Expires=1678826819&amp;Signature=qEaIjV%2F4c%2F4eHM15fofIqhPohiU%3D"
+                                        decoding="async" data-nimg="fixed" class="appear rounded-full object-cover"
+                                        style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"><noscript></noscript></span>
+                            </div>
+                            <div class="ml-4 cursor-pointer"><span
+                                    style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 35px; height: 35px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"><img
+                                        srcset="/_next/image?url=%2Fassets%2Fimages%2FPlaylist%2FHeat%20gauge.png&amp;w=48&amp;q=75 1x, /_next/image?url=%2Fassets%2Fimages%2FPlaylist%2FHeat%20gauge.png&amp;w=96&amp;q=75 2x"
+                                        src="/_next/image?url=%2Fassets%2Fimages%2FPlaylist%2FHeat%20gauge.png&amp;w=96&amp;q=75"
+                                        decoding="async" data-nimg="fixed" class="rounded-full"
+                                        style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"></span>
+                            </div>
+                        </div>
+                        <div class="mt-2 border-t border-gray-2 pt-4 mb-1"><span
+                                class="text-sm text-gray-1 bg-gray-2 px-2 rounded-lg font-semibold capitalize">general</span>
+                            <div class="text-gray-0 mt-1"><span class="text-sm font-medium">sylensa</span>
+                                <h2 class="text-gray text-xl font-bold">Get more</h2>
+                            </div>
+                            <div class="text-gray-0 mt-1"><span class="text-sm font-medium">Price:</span>
+                                <h2 class="text-gray text-xl font-bold">$ 5,000.00</h2>
+                            </div>
+                            <div class="mt-1"><span class="text-auction text-base font-bold">Buy Now</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </section>
+    </div>
+</section> -->
+
+
+
+<section class="bg-gray-3 px-6 sm:py-10">
+    <div class="container mx-auto pt-10">
+        <section class="flex w-full flex-wrap items-start">
+            <div class="appear w-full pr-2 pb-2 sm:w-1/2 md:w-1/3 md:pb-6 md:pr-4 lg:w-1/4 "
+                *ngFor="let item of user_list;">
+                <div class="musicCard relative mx-2 h-[22rem] mb-2 cursor-pointer" (click)="goTransaction()">
+                    <div
+                        class="relative h-full w-full rounded-2xl bg-white border border-gray-2 p-4 hover:scale-105 transition-all duration-700">
+                        <div class="flex items-center">
+                            <div class="relative rounded-full object-cover w-[100px] h-[100px] bg-prime"><span
+                                    style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 100px; height: 100px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"><img
+                                        src="{{item.card.cover_art_url}}"
+                                        decoding="async" data-nimg="fixed" class="appear rounded-full object-cover"
+                                        style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"><noscript></noscript></span>
+                            </div>
+                            <div class="ml-4 cursor-pointer"><span
+                                    style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 35px; height: 35px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"><img
+                                        srcset="/assets/img/heat.png, /assets/img/heat.png"
+                                        src="/assets/img/heat.png"
+                                        decoding="async" data-nimg="fixed" class="rounded-full"
+                                        style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"></span>
+                            </div>
+                        </div>
+                        <div class="mt-1"><span class="text-sm font-medium">{{item.stage_name}}</span>
+                            <h2 class=" text-xl font-bold">{{item.card.card_title}}</h2>
+                        </div>
+                        <div class="mt-2 border-t border-gray-2 pt-4 mb-1"><span
+                                class="text-sm text-gray-1 bg-gray-2 px-2 rounded-lg font-semibold capitalize">{{item.listing_type}}</span>
+                          
+                            <div class=" mt-1"><span class="text-sm font-medium">Price:</span>
+                                <h2 class=" text-xl font-bold">$ {{item.card_value}}</h2>
+                            </div>
+                            <!-- <div class="mt-1"><span class="text-auction text-base font-bold">Buy Now</span></div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+    </div>
+</section>
+
+
+<div class="loader-wrapper" *ngIf="!loading">
+    <img src="assets/img/show.png" class="loader">
+</div>

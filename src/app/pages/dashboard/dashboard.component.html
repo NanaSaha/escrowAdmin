@@ -1,0 +1,510 @@
+<div class="row">
+  <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="card card-stats">
+      <div class="card-body ">
+        <div class="row">
+          <div class="col-5 col-md-4">
+            <div class="icon-big text-center icon-warning">
+              <i class="nc-icon nc-button-play text-warning"></i>
+            </div>
+          </div>
+          <div class="col-7 col-md-8">
+            <div class="numbers">
+              <p class="card-category">Cards
+              Transacted</p>
+              <p class="card-title">{{user_list?.counts.cards_transacted}}
+              <p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer ">
+        <hr>
+        <div class="stats">
+           Updated
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="card card-stats">
+      <div class="card-body ">
+        <div class="row">
+          <div class="col-5 col-md-4">
+            <div class="icon-big text-center icon-warning">
+              <i class="nc-icon nc-credit-card text-success"></i>
+            </div>
+          </div>
+          <div class="col-7 col-md-8">
+            <div class="numbers">
+              <p class="card-category">Transacted Value</p>
+              <p class="card-title">£{{user_list?.counts.cards_transacted_value}}
+              <p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer ">
+        <hr>
+        <div class="stats">
+        Updated Today
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="card card-stats">
+      <div class="card-body ">
+        <div class="row">
+          <div class="col-5 col-md-4">
+            <div class="icon-big text-center icon-warning">
+              <i class="nc-icon nc-note-03 text-danger"></i>
+            </div>
+          </div>
+          <div class="col-7 col-md-8">
+            <div class="numbers">
+              <p class="card-category">TOTAL SONGS</p>
+              <p class="card-title">{{user_list?.counts.songs}}
+              <p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer ">
+        <hr>
+        <div class="stats">
+        Updated Today
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="card card-stats">
+      <div class="card-body ">
+        <div class="row">
+          <div class="col-5 col-md-4">
+            <div class="icon-big text-center icon-warning">
+              <i class="nc-icon nc-badge text-primary"></i>
+            </div>
+          </div>
+          <div class="col-7 col-md-8">
+            <div class="numbers">
+              <p class="card-category">Cards</p>
+              <p class="card-title">{{user_list?.counts.cards}}
+              <p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer ">
+        <hr>
+        <div class="stats">
+        Updated Today
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div class="row">
+  <div class="col-md-12">
+    <div class="card ">
+      <div class="card-header ">
+        <h5 class="card-title">Total</h5>
+        <p class="card-category">$452K</p>
+      </div>
+      <div class="card-body ">
+        <canvas id=chartHours width="400" height="100"></canvas>
+      </div>
+      <div class="card-footer ">
+        <hr>
+        <div class="stats">
+          <i class="fa fa-history"></i> LAST MONTH
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+
+
+<div class="row">
+  <div class="col-md-3">
+    <!-- <h5 class="card-title">TOP CARDS</h5> -->
+      <h2 style="font-weight: 900;">HOT PICK</h2>
+    <!-- <div class=" " id="backg">
+
+      <div class="legend" style="text-align: center;
+    line-height: 0px;
+    padding-top: 100%;">
+        <p style="color: white">Indie Pop</p>
+        <h4 style="color: white;font-weight: 900;">Kids In the Dark</h4>
+        <p style="color: white">Bat For Lashes</p>
+
+      </div>
+
+    </div> -->
+    <div class="h-[25rem] sm:h-[22rem] md:h-[25rem] relative musicCard mx-2 cursor-pointer rounded-2xl bg-cover"
+      style="background: url(&quot;/assets/img/card_back.svg&quot;) center center no-repeat;" (click)="gotoCardDetails(hotpick.id)">
+      <div class="appear relative h-full w-full rounded-[16px] bg-cover bg-center bg-no-repeat p-[10px]">
+        <div class="p-4" style="height: calc(100% - 5rem);">
+          <div class="w-full flex justify-between">
+            <div></div>
+            <div class="flex items-center space-x-2 md:space-x-4">
+              <div class="relative w-4 h-4 md:w-10 md:h-10"><span
+                  style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;"><img
+                    src="/assets/img/Chip-silver.svg" decoding="async" data-nimg="fill"
+                    style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"></span>
+              </div>
+              <div class="relative w-4 h-4 md:w-10 md:h-10"><svg class="w-full h-full" viewBox="0 0 31 39" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M24.3263 2C27.3881 7.32067 29 13.3562 29 19.5C29 25.6438 27.3881 31.6793 24.3263 37M16.6516 5.85C19.0398 10.0001 20.2971 14.7078 20.2971 19.5C20.2971 24.2922 19.0398 28.9999 16.6516 33.15M9.32582 9.385C11.0527 12.4178 11.9618 15.858 11.9618 19.36C11.9618 22.862 11.0527 26.3022 9.32582 29.335M2 13.2C3.24452 15.0897 3.90432 17.2725 3.90432 19.5C3.90432 21.7275 3.24452 23.9103 2 25.8"
+                    stroke="#D9D9D9" stroke-width="4" stroke-linecap="round"></path>
+                </svg></div>
+            </div>
+          </div>
+          <div class="w-full flex items-center justify-center relative pt-0" style="height: calc(100% - 3rem);"><span
+              style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 130px; height: 130px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"><img
+                src="{{hotpick.cover_art_url}}"
+                decoding="async" data-nimg="fixed" class="rounded-full bg-gray-4 border border-[#2C3543]"
+                style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover;"></span>
+          </div>
+        </div>
+      </div>
+      <div class="absolute bottom-0 w-full">
+        <div class="flex flex-col items-center justify-center font-bold py-2 z-10">
+          <h2 class="text-white text-xl md:text-2xl capitalize" style="font-weight: 900;
+    margin-top: -10%;
+    position: absolute;">{{hotpick.owner.stage_name}}</h2>
+        </div>
+        <div class="w-full h-24 px-4 py-2 rounded-b-2xl flex justify-between items-center z-0"
+          style="background: linear-gradient(94.2deg, rgba(255, 255, 255, 0) 13.99%, rgb(255, 255, 255) 47.58%, rgba(255, 255, 255, 0) 77.77%), rgb(153, 153, 153);">
+          <div class="font-bold"><span class="text-xs leading-relaxed">Powered By</span>
+            <p class="leading-tight text-lg">{{hotpick.card_title}}</p>
+          </div>
+          <div class="flex items-center justify-center"><span
+              style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 80px; height: 50px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"><img
+                src="/assets/img/logo-w.svg" decoding="async" data-nimg="fixed"
+                style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover;"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="w-full md:w-80">
+      <div class="h-[30rem] relative musicCard mx-2 cursor-pointer rounded-2xl bg-cover bg-center bg-no-repeat"
+        style="background: url(&quot;/assets/img/placeholder.png&quot;);">
+        <div class="appear relative h-full w-full rounded-[16px] bg-cover bg-center bg-no-repeat p-[10px]"
+          style="background: url(https://user-gen-content.s3.amazonaws.com/media/cover/KnUxp2AXumPOeIvV7yE1.jpeg?AWSAccessKeyId=AKIAXU2R3TSSJQYXHVNI&Expires=1675717198&Signature=dv6uBhe2YMTD8Q7T4lzMZQwkRE8%3D)">
+          <div class="h-full p-[6px] border-2 border-white rounded-[16px]">
+            <div class="h-full p-[10px] border-2 border-white rounded-[16px]">
+              <div class="flex justify-between">
+                <div class="flex h-10 w-10 items-center justify-center rounded-full bg-black"><svg class="h-6 w-6"
+                    viewBox="0 0 31 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="3.5" cy="3.5" r="3.5" fill="white"></circle>
+                    <circle cx="15.5" cy="3.5" r="3.5" fill="white"></circle>
+                    <circle cx="27.5" cy="3.5" r="3.5" fill="white"></circle>
+                  </svg></div>
+                <div class="flex items-center">
+                  <div class="relative w-10 h-10"><span
+                      style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;"><img
+                        sizes="100vw"
+                        srcset="/assets/img/Chip.svg 640w, /assets/img/Chip.svg 750w, /assets/img/Chip.svg 828w, /assets/img/Chip.svg 1080w, /assets/img/Chip.svg 1200w, /assets/img/Chip.svg 1920w, /assets/img/Chip.svg 2048w, /assets/img/Chip.svg 3840w"
+                        src="/assets/img/Chip.svg" decoding="async" data-nimg="fill"
+                        style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"></span>
+                  </div>
+                  <div class="relative w-10 h-10"><span
+                      style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;"><img
+                        sizes="100vw"
+                        srcset="/assets/img/signal.svg 640w, /assets/img/signal.svg 750w, /assets/img/signal.svg 828w, /assets/img/signal.svg 1080w, /assets/img/signal.svg 1200w, /assets/img/signal.svg 1920w, /assets/img/signal.svg 2048w, /assets/img/signal.svg 3840w"
+                        src="/assets/img/signal.svg" decoding="async" data-nimg="fill" class="pl-2"
+                        style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="absolute bottom-0 w-full">
+          <div class="flex flex-col items-center justify-center font-bold pb-4 pt-2 z-10"
+            style="background: linear-gradient(357.75deg, rgba(0, 0, 0, 0.5) 2.01%, rgba(0, 0, 0, 0) 98.24%);">
+            <h2 class="text-white md:text-3xl lg:text-4xl capitalize">Sarkodie</h2>
+            <div
+              class="text-white border sm:border-2 border-white rounded-full py-1 px-2 sm:px-4 md:px-6 upper-case text-base md:text-lg mt-3">
+              Gold Card</div>
+          </div>
+          <div class="w-full h-24 px-4 py-2 rounded-b-2xl flex justify-between items-center z-0"
+            style="background: linear-gradient(264.76deg, rgb(188, 146, 65) 3.31%, rgb(252, 255, 147) 49.13%, rgb(194, 161, 97) 96.65%);">
+            <div class="font-bold"><span class="text-xs">Powered By</span>
+              <p class="text-base md:text-lg leading-tight"> Test</p>
+            </div>
+            <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center"><span
+                style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 35px; height: 35px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"><img
+                  srcset="assets/img/heat.png, /assets/img/heat.png" src="assets/img/heat.png" decoding="async"
+                  data-nimg="fixed" class="rounded-full"
+                  style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+   
+    </div> -->
+  </div>
+  <!-- <div class="col-md-3">
+    <h5 class="card-title">TOP CARDS</h5>
+    <div class=" " id="backg2">
+
+      <div class="legend" style="text-align: center;
+        line-height: 0px;
+        padding-top: 100%;">
+        <p style="color: white">Indie Pop</p>
+        <h4 style="color: white;font-weight: 900;">Kids In the Dark</h4>
+        <p style="color: white">Bat For Lashes</p>
+
+      </div>
+
+    </div>
+  </div> -->
+ 
+  <div class="col-md-8">
+
+    <h2 style="font-weight: 900;">ALL STREAMS</h2>
+    <div class="row">
+      <!-- <div class="col-md-3">
+        <div class="card card-stats">
+          <div class="card-body ">
+            <div class="row">
+              <div class="col-5 col-md-4">
+                <div class="icon-big text-center icon-warning">
+                  <i class="nc-icon nc-globe text-warning"></i>
+                </div>
+              </div>
+              <div class="col-7 col-md-8">
+                <div class="numbers">
+                  <p class="card-category">So Plays</p>
+                  <p class="card-title">2.3B
+                  <p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div> -->
+
+      <div class="col-md-3">
+        <div class="card card-stats">
+          <div class="card-body ">
+            <div class="row">
+
+              <div class="col-7 col-md-8">
+                <div class="numbers">
+                  <img src="assets/img/apple.png" style="width: 35px;">
+
+                  <p class="card-title">0
+                  <p>
+                  <p class="card-category" style="font-weight: 900;
+    padding-bottom: 20px;">PLAYS</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card card-stats">
+          <div class="card-body ">
+            <div class="row">
+
+              <div class="col-7 col-md-8">
+                <div class="numbers">
+                  <img src="assets/img/spotify.png" style="width: 35px;">
+
+                  <p class="card-title">0
+                  <p>
+                  <p class="card-category" style="font-weight: 900;
+    padding-bottom: 20px;">PLAYS</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card card-stats">
+          <div class="card-body ">
+            <div class="row">
+
+              <div class="col-7 col-md-8">
+                <div class="numbers">
+                  <img src="assets/img/youtube.png" style="width: 35px;">
+
+                  <p class="card-title">0
+                  <p>
+                  <p class="card-category" style="font-weight: 900;
+    padding-bottom: 20px;">PLAYS</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card card-stats">
+          <div class="card-body ">
+            <div class="row">
+
+              <div class="col-7 col-md-8">
+                <div class="numbers">
+                  <img src="assets/img/deezer.png" style="width: 35px;">
+
+                  <p class="card-title">0
+                  <p>
+                  <p class="card-category" style="font-weight: 900;
+    padding-bottom: 20px;">PLAYS</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="card-title"> TOP 5 COUNTRIES</h4>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table">
+                  <thead class=" text-primary">
+                    <th>
+                      COUNTRY
+                    </th>
+                    <th>
+                      SIGNUP
+                    </th>
+                    <th>
+
+                    </th>
+                    <th>
+
+                    </th>
+                    <th>
+
+                    </th>
+                    <th>
+
+                    </th>
+
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        UNITED STATES
+                      </td>
+                      <td>
+                        FRANCE
+                      </td>
+
+                    </tr>
+                    <tr>
+                      <td>
+                      0M
+                      </td>
+                      <td>
+                        0M
+                      </td>
+
+                    </tr>
+
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="card-title"> SOCIAL TRAFFIC</h4>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table">
+                  <thead class=" text-primary">
+                    <th>
+                      REFERAL
+                    </th>
+                    <th>
+                      VISITORS
+                    </th>
+                    <th>
+
+                    </th>
+                    <th>
+
+                    </th>
+                    <th>
+
+                    </th>
+                    <th>
+
+                    </th>
+                    <th>
+
+                    </th>
+                    <th>
+
+                    </th>
+
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        FACEBOOK
+                      </td>
+                      <td>
+                        0M
+                      </td>
+
+                    </tr>
+                    <tr>
+                      <td>
+                        GOOGLE
+                      </td>
+                      <td>
+                        0M
+                      </td>
+
+                    </tr>
+
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+
+
+
+
+</div>
